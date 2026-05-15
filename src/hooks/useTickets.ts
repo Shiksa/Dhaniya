@@ -4,12 +4,13 @@
 
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { TicketFilters, TicketsResponse } from "@/types/ticket";
+import { ticketKeys } from "@/lib/queryKeys";
 
 const PAGE_SIZE = 10;
 
 export function useTickets(filters: TicketFilters) {
   return useInfiniteQuery<TicketsResponse>({
-    queryKey: ["tickets", filters],
+    queryKey: ticketKeys.list(filters),
     queryFn: async ({ pageParam = 1 }) => {
       const params = new URLSearchParams({
         page: String(pageParam),

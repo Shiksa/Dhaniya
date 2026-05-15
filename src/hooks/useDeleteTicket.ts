@@ -2,6 +2,7 @@
 
 "use client";
 
+import { ticketKeys } from "@/lib/queryKeys";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 export function useDeleteTicket() {
@@ -15,7 +16,7 @@ export function useDeleteTicket() {
       return res.json();
     },
     onSuccess: () => {
-      qc.invalidateQueries({ queryKey: ["tickets"] });
+      qc.invalidateQueries({ queryKey: ticketKeys.lists() });
     },
   });
 }

@@ -4,6 +4,7 @@
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import type { CreateTicketFormData } from "@/lib/validations/ticket.schema";
+import { ticketKeys } from "@/lib/queryKeys";
 
 export function useCreateTicket() {
   const queryClient = useQueryClient();
@@ -18,7 +19,7 @@ export function useCreateTicket() {
       return res.json();
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["tickets"] });
+      queryClient.invalidateQueries({ queryKey: ticketKeys.lists() });
     },
   });
 }
