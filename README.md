@@ -9,7 +9,7 @@ This project was developed as part of a frontend engineering assignment to demon
 
 # 🌐 Live Demo
 
-🔗 Live Application:   
+🔗 Live Application:   https://dhaniya.vercel.app/tickets
 
 
 ---
