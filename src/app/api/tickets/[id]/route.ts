@@ -1,4 +1,4 @@
-//update,delete api for  ticket
+//update,delete api for each specific ticket
 
 import { NextRequest, NextResponse } from "next/server";
 import connectDB from "@/lib/db";
@@ -12,7 +12,7 @@ export async function GET(
 ) {
   try {
     await connectDB();
-    const { id } = await context.params; // ✅ FIX
+    const { id } = await context.params;
     const ticket = await TicketModel.findById(id);
     if (!ticket) {
       return NextResponse.json(
@@ -73,7 +73,7 @@ export async function DELETE(
 ) {
   try {
     await connectDB();
-    const { id } = await context.params; // ✅ FIX
+    const { id } = await context.params;
     const deletedTicket = await TicketModel.findByIdAndDelete(id);
     if (!deletedTicket) {
       return NextResponse.json(

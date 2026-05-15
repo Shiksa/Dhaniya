@@ -55,7 +55,7 @@ const TicketSchema = new Schema<ITicket>(
     toJSON: {
       virtuals: true,
       transform: function (doc, ret) {
-        const transformed = ret as any;  // ← FIX IS HERE
+        const transformed = ret as any;
         transformed.id = transformed._id.toString();
         delete transformed._id;
         delete transformed.__v;
